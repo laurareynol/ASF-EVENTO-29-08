@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +13,13 @@
 </head>
 <body class="bg-gray-50 text-gray-900">
 
-    <header class="relative bg-white shadow-sm py-4">
+    <header class="relative bg-white shadow-sm py-4 sticky top-0 z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/Avi%C3%A3o-2-degrade-black%404x.png" alt="Logo Austrália Sem Fronteiras" class="h-20 w-auto">
             </div>
             <nav class="hidden md:flex space-x-8 font-medium">
-                <a href="#" class="hover:text-blue-600 transition">Sobre</a>
+                <button onclick="document.getElementById('sobre-modal').classList.remove('hidden')" class="hover:text-blue-600 transition">Sobre</button>
                 <a href="#" class="hover:text-blue-600 transition">Palestrantes</a>
                 <a href="#" class="hover:text-blue-600 transition">ASF - O Livro</a>
                 <a href="#" class="hover:text-blue-600 transition">FAQ</a>
@@ -27,6 +27,23 @@
             <button class="bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition shadow-md">Comprar Ingresso</button>
         </div>
     </header>
+
+    <div id="sobre-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-3xl p-8 shadow-2xl relative">
+            <button onclick="document.getElementById('sobre-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-blue-900">Sobre o Austrália Sem Fronteiras</h2>
+            <div class="space-y-4 text-gray-600">
+                <p>O <strong>Austrália Sem Fronteiras (ASF)</strong> é mais do que uma plataforma; é um movimento de transformação humana.</p>
+                <p>Nossa proposta de valor se baseia em três dimensões:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Movimento e Plataforma:</strong> Criamos uma ponte de confiança entre a América Latina e a Austrália, oferecendo orientação pré-embarque e suporte contínuo.</li>
+                    <li><strong>Método Líder de Travessias:</strong> Convertemos a mudança em um processo de desenvolvimento de identidade e autoridade, focando no protagonismo do estudante.</li>
+                    <li><strong>Parcerias Educacionais:</strong> Conectamos talentos a oportunidades reais, internacionalizando carreiras com execução e planejamento.</li>
+                </ul>
+                <p>Não vendemos apenas cursos ou vistos; vendemos segurança, pertencimento e uma jornada bem-sucedida para quem decide construir seu futuro na Austrália.</p>
+            </div>
+        </div>
+    </div>
 
     <main class="container mx-auto px-6 py-16">
         <section class="flex flex-col md:flex-row items-center gap-12">
