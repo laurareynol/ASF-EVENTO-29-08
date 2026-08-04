@@ -108,7 +108,19 @@
                 <a href="#livro" class="hover:text-navy-600 transition">ASF: O Livro</a>
                 <a href="#faq" class="hover:text-navy-600 transition">FAQ</a>
             </nav>
-            <a href="#" data-cta-checkout class="bg-navy-800 text-white px-5 md:px-6 py-2 rounded-full hover:bg-navy-700 transition shadow-md text-sm md:text-base whitespace-nowrap">Comprar Ingresso</a>
+            <div class="flex items-center gap-2 md:gap-4">
+                <a href="#" data-cta-checkout class="bg-navy-800 text-white px-5 md:px-6 py-2 rounded-full hover:bg-navy-700 transition shadow-md text-sm md:text-base whitespace-nowrap">Comprar Ingresso</a>
+                <button id="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-navy-800/5 transition">
+                    <svg class="w-6 h-6 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu mobile: escondido por padrão, abre em lista vertical abaixo do header -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-navy-900/5 px-6 py-4 space-y-1">
+            <button onclick="document.getElementById('sobre-modal').classList.remove('hidden'); document.getElementById('mobile-menu').classList.add('hidden');" class="block w-full text-left py-2 font-medium hover:text-navy-600 transition">Sobre</button>
+            <a href="#palestrantes" class="block py-2 font-medium hover:text-navy-600 transition">Palestrantes</a>
+            <a href="#livro" class="block py-2 font-medium hover:text-navy-600 transition">ASF: O Livro</a>
+            <a href="#faq" class="block py-2 font-medium hover:text-navy-600 transition">FAQ</a>
         </div>
     </header>
 
@@ -137,7 +149,7 @@
                 <div class="flex-1 space-y-6 reveal">
                     <span class="inline-flex items-center gap-2 text-stamp-gold font-semibold tracking-wide uppercase text-xs md:text-sm">
                         <span class="w-8 h-px bg-stamp-gold"></span>
-                        29 de Agosto · São Paulo · 2ª Edição
+                        29 de Agosto · 14h às 18h · São Paulo
                     </span>
                     <h1 class="text-4xl md:text-6xl font-display font-semibold leading-tight text-navy-900">
                         O seu futuro na Austrália começa em uma sala, em São Paulo.
@@ -207,16 +219,55 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-2xl font-display font-semibold mb-1">Evento ASF 2026</h3>
-                            <p class="opacity-70 text-sm">São Paulo, 29 de Agosto</p>
+                            <p class="opacity-70 text-sm">São Paulo, 29 de Agosto · 14h às 18h</p>
                         </div>
                         <span class="text-[10px] uppercase tracking-widest bg-stamp-gold/90 text-navy-950 font-bold px-2.5 py-1 rounded-full">Livro incluso</span>
                     </div>
                     <div class="border-t border-dashed border-white/30 mt-6 pt-6">
-                        <p class="text-xs uppercase tracking-widest opacity-60">Ingresso + Livro</p>
-                        <p class="text-xl font-semibold mt-1">Nome do Participante</p>
+                        <p class="text-xs uppercase tracking-widest opacity-60">Rota</p>
+                        <p class="text-xl font-semibold mt-1 flex items-center gap-2">
+                            Brasil
+                            <svg class="w-4 h-4 text-stamp-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+                            Austrália
+                        </p>
                     </div>
                     <div class="mt-8 flex justify-between items-end">
-                        <div class="h-12 w-32 bg-white rounded-md opacity-20 flex items-center justify-center text-[8px]">QR CODE</div>
+                        <svg class="h-12 w-32 opacity-70" viewBox="0 0 128 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="0" y="0" width="3" height="36" fill="white"/>
+                            <rect x="5" y="0" width="1" height="36" fill="white"/>
+                            <rect x="9" y="0" width="2" height="36" fill="white"/>
+                            <rect x="14" y="0" width="1" height="36" fill="white"/>
+                            <rect x="17" y="0" width="3" height="36" fill="white"/>
+                            <rect x="22" y="0" width="1" height="36" fill="white"/>
+                            <rect x="25" y="0" width="2" height="36" fill="white"/>
+                            <rect x="30" y="0" width="1" height="36" fill="white"/>
+                            <rect x="33" y="0" width="3" height="36" fill="white"/>
+                            <rect x="38" y="0" width="2" height="36" fill="white"/>
+                            <rect x="42" y="0" width="1" height="36" fill="white"/>
+                            <rect x="45" y="0" width="3" height="36" fill="white"/>
+                            <rect x="50" y="0" width="1" height="36" fill="white"/>
+                            <rect x="53" y="0" width="2" height="36" fill="white"/>
+                            <rect x="57" y="0" width="1" height="36" fill="white"/>
+                            <rect x="60" y="0" width="3" height="36" fill="white"/>
+                            <rect x="65" y="0" width="2" height="36" fill="white"/>
+                            <rect x="69" y="0" width="1" height="36" fill="white"/>
+                            <rect x="72" y="0" width="3" height="36" fill="white"/>
+                            <rect x="77" y="0" width="1" height="36" fill="white"/>
+                            <rect x="80" y="0" width="2" height="36" fill="white"/>
+                            <rect x="84" y="0" width="1" height="36" fill="white"/>
+                            <rect x="87" y="0" width="3" height="36" fill="white"/>
+                            <rect x="92" y="0" width="2" height="36" fill="white"/>
+                            <rect x="96" y="0" width="1" height="36" fill="white"/>
+                            <rect x="99" y="0" width="3" height="36" fill="white"/>
+                            <rect x="104" y="0" width="1" height="36" fill="white"/>
+                            <rect x="107" y="0" width="2" height="36" fill="white"/>
+                            <rect x="111" y="0" width="1" height="36" fill="white"/>
+                            <rect x="114" y="0" width="3" height="36" fill="white"/>
+                            <rect x="119" y="0" width="2" height="36" fill="white"/>
+                            <rect x="123" y="0" width="1" height="36" fill="white"/>
+                            <rect x="125" y="0" width="3" height="36" fill="white"/>
+                            <text x="64" y="45" text-anchor="middle" font-family="monospace" font-size="7" letter-spacing="2" fill="white">ASF 2026</text>
+                        </svg>
                         <a href="#" data-cta-checkout class="bg-stamp-gold text-navy-950 px-4 py-2 rounded-lg text-xs font-bold uppercase hover:bg-stamp-light transition">Comprar Agora</a>
                     </div>
                 </div>
@@ -276,36 +327,28 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="reveal text-center group">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
-                            <img src="https://placehold.co/300x300/0B2545/F5F8FB?text=Marcelo" alt="Foto de Marcelo Lusardo, fundador do Austrália Sem Fronteiras" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
-                        </div>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Marcelo Lusardo, fundador do Austrália Sem Fronteiras" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/marcelo-lusardo.jpg'); background-repeat:no-repeat; background-size: auto 200%; background-position: 36% 22%;"></div>
                         <h3 class="font-display font-semibold text-lg text-navy-900">Marcelo Lusardo</h3>
                         <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Fundador ASF · Líder de Travessias™</p>
                         <p class="text-gray-500 text-sm">Do abandono na infância à liderança internacional: autor de Austrália Sem Fronteiras e criador do método Líder de Travessias™.</p>
                     </div>
                     <div class="reveal text-center group" style="transition-delay: 60ms">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
-                            <img src="https://placehold.co/300x300/0F3A63/F5F8FB?text=Especialista" alt="Foto de especialista convidado" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
-                        </div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Nome do Especialista</h3>
-                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Agente Migratório</p>
-                        <p class="text-gray-500 text-sm">Breve descrição da atuação e experiência com processos de imigração.</p>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Elias Esdras, agente migratório" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/elias-esdras.jpg'); background-repeat:no-repeat; background-size: auto 200%; background-position: 33% 15%;"></div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Elias Esdras</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Registered Migration Agent</p>
+                        <p class="text-gray-500 text-sm">Cidadão australiano e pós-graduado em Migration Law, orienta famílias em processos migratórios com estratégia e uma abordagem humana.</p>
                     </div>
                     <div class="reveal text-center group" style="transition-delay: 120ms">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
-                            <img src="https://placehold.co/300x300/144A80/F5F8FB?text=Especialista" alt="Foto de especialista convidado" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
-                        </div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Nome do Especialista</h3>
-                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Expert Latam</p>
-                        <p class="text-gray-500 text-sm">Breve descrição da atuação e área de especialidade dentro do ecossistema.</p>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Alexandre de Pedro, advogado" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/alexandre-de-pedro.jpg'); background-repeat:no-repeat; background-size: auto 200%; background-position: 72% 0%;"></div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Alexandre de Pedro</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Advogado · Educação Internacional</p>
+                        <p class="text-gray-500 text-sm">Advogado que liderou uma operação educacional em Sydney, hoje acompanha brasileiros em processos de estudo, trabalho e vistos na Austrália.</p>
                     </div>
                     <div class="reveal text-center group" style="transition-delay: 180ms">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
-                            <img src="https://placehold.co/300x300/001B33/F5F8FB?text=Convidado" alt="Foto de palestrante convidado" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
-                        </div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Nome do Convidado</h3>
-                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Palestrante Convidado</p>
-                        <p class="text-gray-500 text-sm">Breve descrição da vivência ou trajetória que traz para o palco.</p>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Ismael Tavernaro Filho, palestrante convidado" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/ismael-tavernaro.jpg'); background-repeat:no-repeat; background-size: auto 284%; background-position: 100% 33%;"></div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Ismael Tavernaro Filho</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Convidado · "Gente Motivada Produz"</p>
+                        <p class="text-gray-500 text-sm">Empreendedor que transformou desafios reais em propósito, mostra como mentalidade e atitude mudam resultados na prática.</p>
                     </div>
                 </div>
             </div>
@@ -314,41 +357,41 @@
         <!-- ============ 5. PROVA SOCIAL ============ -->
         <section id="depoimentos" class="container mx-auto px-6 py-20 md:py-24">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-                <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Quem já esteve na 1ª edição</span>
-                <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Abril de 2026 já mudou a rota de várias pessoas.</h2>
+                <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Quem já confiou na Expert Education</span>
+                <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Avaliações reais de quem já teve o visto aprovado.</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="reveal relative bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm">
-                    <span class="stamp-badge absolute -top-3 -right-3 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">1ª Edição · Abr/26</span>
-                    <p class="text-gray-600 leading-relaxed mb-6">"Eu vim com um monte de dúvida sobre visto e saí de lá com um plano de verdade. Falar com o agente migratório ao vivo valeu mais do que meses pesquisando sozinha."</p>
+                    <span class="stamp-badge absolute -top-3 -right-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">★★★★★ Google</span>
+                    <p class="text-gray-600 leading-relaxed mb-6">"A agência foi essencial em todo o meu processo de visto para a Austrália. Desde o primeiro contato, tive orientações claras e suporte constante em cada etapa. Hoje, com o visto aprovado, só tenho a agradecer."</p>
                     <div class="flex items-center gap-3">
-                        <img src="https://placehold.co/80x80/0B2545/F5F8FB?text=P" alt="Foto de participante da 1ª edição" class="w-11 h-11 rounded-full object-cover">
+                        <div class="w-11 h-11 rounded-full bg-navy-800 text-white flex items-center justify-center font-semibold text-sm">IR</div>
                         <div>
-                            <p class="font-semibold text-navy-900 text-sm">Nome do Participante</p>
-                            <p class="text-gray-500 text-xs">Participante · 1ª edição</p>
+                            <p class="font-semibold text-navy-900 text-sm">Isabelle Rimes</p>
+                            <p class="text-gray-500 text-xs">Avaliação no Google</p>
                         </div>
                     </div>
                 </div>
                 <div class="reveal relative bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm" style="transition-delay: 60ms">
-                    <span class="stamp-badge absolute -top-3 -right-3 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">1ª Edição · Abr/26</span>
-                    <p class="text-gray-600 leading-relaxed mb-6">"O networking foi o que mais me surpreendeu. Conheci gente que já está morando lá e hoje me ajuda até em dúvida de aluguel."</p>
+                    <span class="stamp-badge absolute -top-3 -right-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">★★★★★ Google</span>
+                    <p class="text-gray-600 leading-relaxed mb-6">"Minha experiência com a Expert foi incrível! O processo do meu visto foi super tranquilo, e o Alê me transmitiu muita seriedade e segurança do início à emissão do visto. Recomendo a quem deseja fazer um intercâmbio."</p>
                     <div class="flex items-center gap-3">
-                        <img src="https://placehold.co/80x80/0F3A63/F5F8FB?text=P" alt="Foto de participante da 1ª edição" class="w-11 h-11 rounded-full object-cover">
+                        <div class="w-11 h-11 rounded-full bg-navy-700 text-white flex items-center justify-center font-semibold text-sm">T</div>
                         <div>
-                            <p class="font-semibold text-navy-900 text-sm">Nome do Participante</p>
-                            <p class="text-gray-500 text-xs">Participante · 1ª edição</p>
+                            <p class="font-semibold text-navy-900 text-sm">Tatá</p>
+                            <p class="text-gray-500 text-xs">Avaliação no Google</p>
                         </div>
                     </div>
                 </div>
                 <div class="reveal relative bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm" style="transition-delay: 120ms">
-                    <span class="stamp-badge absolute -top-3 -right-3 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">1ª Edição · Abr/26</span>
-                    <p class="text-gray-600 leading-relaxed mb-6">"Recomendo pra quem ainda está na dúvida se vale a pena. O evento é acolhedor, organizado, e ninguém fica te empurrando nada, só te ajudam a decidir com clareza."</p>
+                    <span class="stamp-badge absolute -top-3 -right-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">★★★★★ Google</span>
+                    <p class="text-gray-600 leading-relaxed mb-6">"Recomendo muito a Expert Education! Meu visto foi aprovado num prazo maravilhoso, com todo apoio, empatia e paciência do Ale na aplicação e documentação, e também suporte da Ana Paula na carta de intenção. Sou grata a toda equipe."</p>
                     <div class="flex items-center gap-3">
-                        <img src="https://placehold.co/80x80/144A80/F5F8FB?text=P" alt="Foto de participante da 1ª edição" class="w-11 h-11 rounded-full object-cover">
+                        <div class="w-11 h-11 rounded-full bg-navy-600 text-white flex items-center justify-center font-semibold text-sm">CC</div>
                         <div>
-                            <p class="font-semibold text-navy-900 text-sm">Nome do Participante</p>
-                            <p class="text-gray-500 text-xs">Participante · 1ª edição</p>
+                            <p class="font-semibold text-navy-900 text-sm">Clara Castilho</p>
+                            <p class="text-gray-500 text-xs">Avaliação no Google</p>
                         </div>
                     </div>
                 </div>
@@ -423,10 +466,13 @@
         <section class="ticket-gradient py-16 md:py-20">
             <div class="container mx-auto px-6 text-center reveal">
                 <h2 class="text-2xl md:text-4xl font-display font-semibold text-white mb-4">São Paulo, 29 de Agosto. Sua vaga e seu livro te esperam.</h2>
-                <p class="text-navy-100/70 mb-8 max-w-xl mx-auto">Vagas limitadas para a 2ª edição do ecossistema Austrália Sem Fronteiras.</p>
+                <p class="text-white/90 mb-8 max-w-xl mx-auto">Vagas limitadas para a 2ª edição do ecossistema Austrália Sem Fronteiras.</p>
                 <a href="#" data-cta-checkout class="inline-block bg-stamp-gold text-navy-950 px-10 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-stamp-light hover:-translate-y-0.5 transition duration-300">
                     Garantir Meu Ingresso com Livro Incluso
                 </a>
+                <p class="mt-6 text-sm text-white/80">
+                    Mercure São Paulo Bela Vista, Rua Maestro Cardim, 407, Bela Vista, São Paulo, das 14h às 18h
+                </p>
             </div>
         </section>
     </main>
@@ -437,26 +483,27 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
                 <div>
                     <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/Avi%C3%A3o-2-degrade-black%404x.png" alt="Logo Austrália Sem Fronteiras" class="h-12 w-auto mb-4 brightness-0 invert opacity-90">
-                    <p class="text-sm text-navy-100/60 leading-relaxed max-w-xs">Um evento do ecossistema Austrália Sem Fronteiras, por Expert Latam.</p>
+                    <p class="text-sm text-white/70 leading-relaxed max-w-xs">Um evento do ecossistema Austrália Sem Fronteiras, por Expert Latam.</p>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Evento</h4>
-                    <ul class="space-y-2 text-sm text-navy-100/70">
-                        <li>29 de Agosto</li>
-                        <li>São Paulo, local a confirmar aos inscritos</li>
+                    <ul class="space-y-2 text-sm text-white/80">
+                        <li>29 de Agosto, das 14h às 18h</li>
+                        <li>Mercure São Paulo Bela Vista</li>
+                        <li>Rua Maestro Cardim, 407, Bela Vista, São Paulo</li>
                         <li>2ª edição do ecossistema ASF</li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Navegação</h4>
-                    <ul class="space-y-2 text-sm text-navy-100/70">
+                    <ul class="space-y-2 text-sm text-white/80">
                         <li><a href="#palestrantes" class="hover:text-white transition">Palestrantes</a></li>
                         <li><a href="#livro" class="hover:text-white transition">O Livro</a></li>
                         <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
                     </ul>
                 </div>
             </div>
-            <p class="pt-8 text-center text-xs text-navy-100/50">&copy; 2026 Expert Latam. Todos os direitos reservados.</p>
+            <p class="pt-8 text-center text-xs text-white/50">&copy; 2026 Expert Latam. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -492,6 +539,23 @@
                 console.log('CTA de checkout clicado:', link.textContent.trim());
             });
         });
+
+        // Menu mobile
+        var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function () {
+                var isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
 
         // Accordion FAQ
         document.querySelectorAll('.faq-trigger').forEach(function (btn) {
