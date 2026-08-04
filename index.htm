@@ -3,86 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Austrália Sem Fronteiras | Evento São Paulo</title>
+    <title>Austrália Sem Fronteiras | Evento São Paulo, 29 de Agosto</title>
+    <meta name="description" content="2ª edição do evento presencial do ecossistema Austrália Sem Fronteiras, em São Paulo. Agentes migratórios, palestras práticas, networking e livro incluso no ingresso.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#000C1F',
+                            900: '#001B33',
+                            800: '#0B2545',
+                            700: '#0F3A63',
+                            600: '#144A80',
+                        },
+                        stamp: {
+                            gold: '#C9A227',
+                            light: '#E8C766',
+                        },
+                        mist: '#F5F8FB',
+                    },
+                    fontFamily: {
+                        display: ['Fraunces', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
+        html { -webkit-font-smoothing: antialiased; }
         body { font-family: 'Inter', sans-serif; }
-        .ticket-gradient { background: linear-gradient(135deg, #004e92 0%, #000428 100%); }
+        h1, h2, h3, .font-display { font-family: 'Fraunces', serif; }
+
+        .ticket-gradient { background: linear-gradient(135deg, #144A80 0%, #000C1F 100%); }
+
+        /* Flight-path divider: a subtle dashed route used as a section signature */
+        .route-divider {
+            height: 1px;
+            background-image: linear-gradient(to right, #C9A227 45%, transparent 0%);
+            background-size: 12px 1px;
+            background-repeat: repeat-x;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* Passport stamp badge used on testimonials */
+        .stamp-badge {
+            border: 1.5px solid #C9A227;
+            color: #8a6c15;
+            transform: rotate(-4deg);
+        }
+
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-panel { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+        .faq-item.open .faq-panel { max-height: 400px; }
+
+        .wa-pulse::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: #25D366;
+            animation: wa-ping 2.2s cubic-bezier(0,0,0.2,1) infinite;
+        }
+        @keyframes wa-ping {
+            0% { transform: scale(1); opacity: 0.55; }
+            75%, 100% { transform: scale(1.9); opacity: 0; }
+        }
+
+        ::selection { background: #C9A227; color: #001B33; }
+        :focus-visible { outline: 2px solid #C9A227; outline-offset: 2px; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-mist text-navy-900">
 
-    <header class="relative bg-white shadow-sm py-4 sticky top-0 z-50">
+    <!-- ============ HEADER ============ -->
+    <header class="relative bg-white/90 backdrop-blur-sm shadow-sm py-4 sticky top-0 z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/Avi%C3%A3o-2-degrade-black%404x.png" alt="Logo Austrália Sem Fronteiras" class="h-20 w-auto">
+                <a href="#" class="block">
+                    <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/Avi%C3%A3o-2-degrade-black%404x.png" alt="Logo Austrália Sem Fronteiras" class="h-16 md:h-20 w-auto">
+                </a>
             </div>
-            <nav class="hidden md:flex space-x-8 font-medium">
-                <button onclick="document.getElementById('sobre-modal').classList.remove('hidden')" class="hover:text-blue-600 transition">Sobre</button>
-                <a href="#" class="hover:text-blue-600 transition">Palestrantes</a>
-                <a href="#" class="hover:text-blue-600 transition">ASF - O Livro</a>
-                <a href="#" class="hover:text-blue-600 transition">FAQ</a>
+            <nav class="hidden md:flex space-x-8 font-medium text-sm">
+                <button onclick="document.getElementById('sobre-modal').classList.remove('hidden')" class="hover:text-navy-600 transition">Sobre</button>
+                <a href="#palestrantes" class="hover:text-navy-600 transition">Palestrantes</a>
+                <a href="#livro" class="hover:text-navy-600 transition">ASF: O Livro</a>
+                <a href="#faq" class="hover:text-navy-600 transition">FAQ</a>
             </nav>
-            <button class="bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition shadow-md">Comprar Ingresso</button>
+            <a href="#" data-cta-checkout class="bg-navy-800 text-white px-5 md:px-6 py-2 rounded-full hover:bg-navy-700 transition shadow-md text-sm md:text-base whitespace-nowrap">Comprar Ingresso</a>
         </div>
     </header>
 
-    <div id="sobre-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
+    <!-- ============ MODAL SOBRE ============ -->
+    <div id="sobre-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-navy-950/60 backdrop-blur-sm">
         <div class="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-3xl p-8 shadow-2xl relative">
-            <button onclick="document.getElementById('sobre-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
-            <h2 class="text-3xl font-bold mb-6 text-blue-900">Sobre o Austrália Sem Fronteiras</h2>
+            <button onclick="document.getElementById('sobre-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl leading-none">&times;</button>
+            <h2 class="text-3xl font-display font-semibold mb-6 text-navy-800">Sobre o Austrália Sem Fronteiras</h2>
             <div class="space-y-4 text-gray-600">
-                <p>O <strong>Austrália Sem Fronteiras (ASF)</strong> é mais do que uma plataforma; é um movimento de transformação humana.</p>
+                <p>O <strong>Austrália Sem Fronteiras (ASF)</strong> é um movimento e uma plataforma independente que conecta talentos, instituições e ecossistemas da América Latina à Austrália.</p>
                 <p>Nossa proposta de valor se baseia em três dimensões:</p>
                 <ul class="list-disc pl-5 space-y-2">
-                    <li><strong>Movimento e Plataforma:</strong> Criamos uma ponte de confiança entre a América Latina e a Austrália, oferecendo orientação pré-embarque e suporte contínuo.</li>
+                    <li><strong>Movimento e Plataforma:</strong> Criamos uma ponte de confiança por meio de comunicação, eventos e orientação pré-embarque.</li>
                     <li><strong>Método Líder de Travessias:</strong> Convertemos a mudança em um processo de desenvolvimento de identidade e autoridade, focando no protagonismo do estudante.</li>
-                    <li><strong>Parcerias Educacionais:</strong> Conectamos talentos a oportunidades reais, internacionalizando carreiras com execução e planejamento.</li>
+                    <li><strong>Parcerias Educacionais:</strong> Integração de instituições acadêmicas e profissionais a uma operação real de mercado e relacionamento.</li>
                 </ul>
                 <p>Não vendemos apenas cursos ou vistos; vendemos segurança, pertencimento e uma jornada bem-sucedida para quem decide construir seu futuro na Austrália.</p>
             </div>
         </div>
     </div>
 
-    <main class="container mx-auto px-6 py-16">
-        <section class="flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6">
-                <span class="text-blue-600 font-semibold tracking-wide uppercase text-sm">29 de Agosto | São Paulo</span>
-                <h1 class="text-5xl md:text-6xl font-bold leading-tight text-gray-900">O seu futuro na Austrália começa aqui.</h1>
-                <p class="text-xl text-gray-600">A segunda edição do evento que une imigração, educação e o lançamento oficial do livro "Austrália Sem Fronteiras".</p>
-                <div class="pt-4">
-                    <a href="URL_DO_SEU_CHECKOUT_HOTMART" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-blue-700 transition">Garantir Meu Ingresso com Livro Incluso</a>
+    <!-- ============ 1. HERO ============ -->
+    <main>
+        <section class="container mx-auto px-6 pt-16 pb-20">
+            <div class="flex flex-col md:flex-row items-center gap-14">
+                <div class="flex-1 space-y-6 reveal">
+                    <span class="inline-flex items-center gap-2 text-stamp-gold font-semibold tracking-wide uppercase text-xs md:text-sm">
+                        <span class="w-8 h-px bg-stamp-gold"></span>
+                        29 de Agosto · São Paulo · 2ª Edição
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-display font-semibold leading-tight text-navy-900">
+                        O seu futuro na Austrália começa em uma sala, em São Paulo.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                        A 2ª edição presencial do ecossistema Austrália Sem Fronteiras reúne agentes migratórios, especialistas e quem já atravessou esse caminho, em um único dia, com o livro oficial do fundador incluso no seu ingresso.
+                    </p>
+                    <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <a href="#" data-cta-checkout class="inline-flex justify-center items-center bg-navy-800 text-white px-8 md:px-10 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg shadow-navy-900/20 hover:bg-navy-700 hover:-translate-y-0.5 transition duration-300">
+                            Garantir Meu Ingresso com Livro Incluso
+                        </a>
+                    </div>
+                    <div class="pt-4 flex items-center gap-6 text-sm text-gray-500">
+                        <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-stamp-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg> Vagas limitadas</span>
+                        <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-stamp-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg> Livro incluso</span>
+                    </div>
                 </div>
-            </div>
-            <div class="flex-1 w-full">
-                <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/EXPERT%20EDUCATION%20278.JPG" alt="Evento Austrália Sem Fronteiras" class="rounded-3xl shadow-2xl w-full h-auto object-cover">
+                <div class="flex-1 w-full reveal">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-navy-800/5 rounded-[2rem] -z-10 hidden md:block"></div>
+                        <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/EXPERT%20EDUCATION%20278.JPG" alt="Palco do evento Austrália Sem Fronteiras" class="rounded-3xl shadow-2xl w-full h-auto object-cover">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="mt-24">
-            <h2 class="text-3xl font-bold text-center mb-12">Seu passaporte para o evento</h2>
-            <div class="max-w-md mx-auto ticket-gradient text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden transform hover:scale-105 transition duration-500">
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
-                <h3 class="text-2xl font-bold mb-2">Evento ASF 2026</h3>
-                <p class="opacity-80 mb-8">São Paulo, 29 de Agosto</p>
-                <div class="border-t border-dashed border-white/30 pt-6">
-                    <p class="text-sm uppercase tracking-widest opacity-60">Ingresso VIP + Livro</p>
-                    <p class="text-xl font-semibold mt-1">Nome do Participante</p>
+        <!-- ============ 2. BÔNUS: O LIVRO ============ -->
+        <section id="livro" class="bg-navy-900 py-20 md:py-24 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 22px 22px;"></div>
+            <div class="container mx-auto px-6 relative">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="flex-1 order-2 md:order-1 reveal">
+                        <div class="relative max-w-[13rem] md:max-w-xs mx-auto group">
+                            <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/livrofechado.png?v=2"
+                                 onerror="this.src='https://placehold.co/520x650/0B2545/E8C766?text=Livro%20Austr%C3%A1lia%20Sem%20Fronteiras'"
+                                 alt="Capa do livro Austrália Sem Fronteiras, de Marcelo Lusardo"
+                                 class="w-full h-auto drop-shadow-2xl group-hover:-translate-y-1 group-hover:scale-[1.02] transition duration-500">
+                        </div>
+                    </div>
+                    <div class="flex-1 order-1 md:order-2 text-white space-y-6 reveal">
+                        <span class="inline-block text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Bônus exclusivo do ingresso</span>
+                        <h2 class="text-3xl md:text-5xl font-display font-semibold leading-tight">
+                            Um livro sobre uma travessia real: a do próprio autor.
+                        </h2>
+                        <p class="text-navy-100/80 text-lg leading-relaxed">
+                            Todo ingresso comprado garante uma cópia física do livro <em>Austrália Sem Fronteiras</em>, escrito por <strong>Marcelo Lusardo</strong>, entregue pessoalmente a você no credenciamento do evento, sem custo adicional.
+                        </p>
+                        <p class="text-navy-100/80 leading-relaxed">
+                            Nascido em Montevidéu, Marcelo enfrentou o abandono materno ainda criança e, aos 12 anos, atravessou a fronteira rumo ao Brasil. Viveu em mais de 40 países até que, em 2016, recomeçou do zero na Austrália como estudante internacional: sem falar o idioma, sem rede de apoio. Foi reconstruindo a própria vida, até conquistar a cidadania australiana, que ele desenvolveu o método <strong class="text-white">Líder de Travessias™</strong>, o coração do livro e do próprio evento.
+                        </p>
+                        <div class="border-l-2 border-stamp-gold/50 pl-5 py-1">
+                            <p class="text-navy-100/90 leading-relaxed">
+                                <em>"Toda travessia começa dentro da alma. Você não precisa de respostas. Precisa atravessar."</em>
+                            </p>
+                        </div>
+                        <ul class="space-y-3 text-navy-100/90">
+                            <li class="flex items-start gap-3"><span class="mt-1 w-1.5 h-1.5 rounded-full bg-stamp-gold flex-shrink-0"></span>Retirada no dia, junto com sua credencial</li>
+                            <li class="flex items-start gap-3"><span class="mt-1 w-1.5 h-1.5 rounded-full bg-stamp-gold flex-shrink-0"></span>Sem sorteio, sem pegadinha: todo ingresso tem direito</li>
+                            <li class="flex items-start gap-3"><span class="mt-1 w-1.5 h-1.5 rounded-full bg-stamp-gold flex-shrink-0"></span>A história real por trás do método que ele leva ao palco em São Paulo</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="mt-8 flex justify-between items-end">
-                    <div class="h-12 w-32 bg-white rounded-md opacity-20 flex items-center justify-center text-[8px]">QR CODE</div>
-                    <a href="URL_DO_SEU_CHECKOUT_HOTMART" class="bg-white text-blue-900 px-4 py-2 rounded-lg text-xs font-bold uppercase hover:bg-gray-100 transition">Comprar Agora</a>
+
+                <!-- Ticket / boarding pass, reused as supporting proof of the bonus -->
+                <div class="mt-16 max-w-md mx-auto ticket-gradient text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden reveal">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-display font-semibold mb-1">Evento ASF 2026</h3>
+                            <p class="opacity-70 text-sm">São Paulo, 29 de Agosto</p>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest bg-stamp-gold/90 text-navy-950 font-bold px-2.5 py-1 rounded-full">Livro incluso</span>
+                    </div>
+                    <div class="border-t border-dashed border-white/30 mt-6 pt-6">
+                        <p class="text-xs uppercase tracking-widest opacity-60">Ingresso + Livro</p>
+                        <p class="text-xl font-semibold mt-1">Nome do Participante</p>
+                    </div>
+                    <div class="mt-8 flex justify-between items-end">
+                        <div class="h-12 w-32 bg-white rounded-md opacity-20 flex items-center justify-center text-[8px]">QR CODE</div>
+                        <a href="#" data-cta-checkout class="bg-stamp-gold text-navy-950 px-4 py-2 rounded-lg text-xs font-bold uppercase hover:bg-stamp-light transition">Comprar Agora</a>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ============ 3. O QUE VOCÊ VAI ENCONTRAR ============ -->
+        <section id="beneficios" class="container mx-auto px-6 py-20 md:py-24">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">O que você vai encontrar</span>
+                <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Um dia inteiro pensado para tirar você do "achismo".</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="reveal bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h.01M15 12h.01M9 16h6M4.5 8.25h15A1.5 1.5 0 0121 9.75v9A1.5 1.5 0 0119.5 20h-15A1.5 1.5 0 013 18.75v-9a1.5 1.5 0 011.5-1.5zM8 8.25V6a4 4 0 018 0v2.25"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Agentes Migratórios Oficiais</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Tire suas dúvidas diretamente com quem lida com processos de imigração todos os dias, sem enrolação.</p>
+                </div>
+
+                <div class="reveal bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300" style="transition-delay: 60ms">
+                    <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20l6-16 6 16M6 14h6m3 6l3-9 3 9"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Palestras Práticas</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Mercado de trabalho, custo de vida e os primeiros passos reais de quem já está na Austrália.</p>
+                </div>
+
+                <div class="reveal bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300" style="transition-delay: 120ms">
+                    <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 100-8 4 4 0 000 8z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Networking com a Comunidade</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Conecte-se com pessoas que estão na mesma jornada e com quem já chegou do outro lado.</p>
+                </div>
+
+                <div class="reveal bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300" style="transition-delay: 180ms">
+                    <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1a4 4 0 010 8h-1M18 8H4v9a4 4 0 004 4h6a4 4 0 004-4V8zM6 2v2m4-2v2m4-2v2"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Coffee Break Exclusivo</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Um intervalo pensado para boas conversas, em um ambiente acolhedor entre uma sessão e outra.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============ 4. QUEM VAI ESTAR LÁ ============ -->
+        <section id="palestrantes" class="bg-white py-20 md:py-24 border-y border-navy-900/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Quem vai estar lá</span>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Especialistas que vivem essa jornada. Não só falam sobre ela.</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="reveal text-center group">
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
+                            <img src="https://placehold.co/300x300/0B2545/F5F8FB?text=Marcelo" alt="Foto de Marcelo Lusardo, fundador do Austrália Sem Fronteiras" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
+                        </div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Marcelo Lusardo</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Fundador ASF · Líder de Travessias™</p>
+                        <p class="text-gray-500 text-sm">Do abandono na infância à liderança internacional: autor de Austrália Sem Fronteiras e criador do método Líder de Travessias™.</p>
+                    </div>
+                    <div class="reveal text-center group" style="transition-delay: 60ms">
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
+                            <img src="https://placehold.co/300x300/0F3A63/F5F8FB?text=Especialista" alt="Foto de especialista convidado" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
+                        </div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Nome do Especialista</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Agente Migratório</p>
+                        <p class="text-gray-500 text-sm">Breve descrição da atuação e experiência com processos de imigração.</p>
+                    </div>
+                    <div class="reveal text-center group" style="transition-delay: 120ms">
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
+                            <img src="https://placehold.co/300x300/144A80/F5F8FB?text=Especialista" alt="Foto de especialista convidado" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
+                        </div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Nome do Especialista</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Expert Latam</p>
+                        <p class="text-gray-500 text-sm">Breve descrição da atuação e área de especialidade dentro do ecossistema.</p>
+                    </div>
+                    <div class="reveal text-center group" style="transition-delay: 180ms">
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4">
+                            <img src="https://placehold.co/300x300/001B33/F5F8FB?text=Convidado" alt="Foto de palestrante convidado" class="w-full h-full object-cover rounded-full shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition">
+                        </div>
+                        <h3 class="font-display font-semibold text-lg text-navy-900">Nome do Convidado</h3>
+                        <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Palestrante Convidado</p>
+                        <p class="text-gray-500 text-sm">Breve descrição da vivência ou trajetória que traz para o palco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 5. PROVA SOCIAL ============ -->
+        <section id="depoimentos" class="container mx-auto px-6 py-20 md:py-24">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Quem já esteve na 1ª edição</span>
+                <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Abril de 2026 já mudou a rota de várias pessoas.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal relative bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm">
+                    <span class="stamp-badge absolute -top-3 -right-3 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">1ª Edição · Abr/26</span>
+                    <p class="text-gray-600 leading-relaxed mb-6">"Eu vim com um monte de dúvida sobre visto e saí de lá com um plano de verdade. Falar com o agente migratório ao vivo valeu mais do que meses pesquisando sozinha."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://placehold.co/80x80/0B2545/F5F8FB?text=P" alt="Foto de participante da 1ª edição" class="w-11 h-11 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-navy-900 text-sm">Nome do Participante</p>
+                            <p class="text-gray-500 text-xs">Participante · 1ª edição</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm" style="transition-delay: 60ms">
+                    <span class="stamp-badge absolute -top-3 -right-3 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">1ª Edição · Abr/26</span>
+                    <p class="text-gray-600 leading-relaxed mb-6">"O networking foi o que mais me surpreendeu. Conheci gente que já está morando lá e hoje me ajuda até em dúvida de aluguel."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://placehold.co/80x80/0F3A63/F5F8FB?text=P" alt="Foto de participante da 1ª edição" class="w-11 h-11 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-navy-900 text-sm">Nome do Participante</p>
+                            <p class="text-gray-500 text-xs">Participante · 1ª edição</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative bg-white rounded-2xl p-8 border border-navy-900/5 shadow-sm" style="transition-delay: 120ms">
+                    <span class="stamp-badge absolute -top-3 -right-3 text-[10px] font-bold uppercase tracking-wide bg-white px-2 py-1 rounded-full shadow-sm">1ª Edição · Abr/26</span>
+                    <p class="text-gray-600 leading-relaxed mb-6">"Recomendo pra quem ainda está na dúvida se vale a pena. O evento é acolhedor, organizado, e ninguém fica te empurrando nada, só te ajudam a decidir com clareza."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://placehold.co/80x80/144A80/F5F8FB?text=P" alt="Foto de participante da 1ª edição" class="w-11 h-11 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-navy-900 text-sm">Nome do Participante</p>
+                            <p class="text-gray-500 text-xs">Participante · 1ª edição</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 6. FAQ ============ -->
+        <section id="faq" class="bg-white py-20 md:py-24 border-t border-navy-900/5">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-14 reveal">
+                    <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Perguntas frequentes</span>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Ainda com dúvidas?</h2>
+                </div>
+
+                <div class="space-y-3" id="faq-list">
+
+                    <div class="faq-item reveal border border-navy-900/10 rounded-2xl overflow-hidden">
+                        <button class="faq-trigger w-full flex items-center justify-between text-left px-6 py-5 bg-white hover:bg-mist transition">
+                            <span class="font-medium text-navy-900">Como funciona a retirada do livro?</span>
+                            <span class="faq-icon text-2xl text-stamp-gold leading-none">+</span>
+                        </button>
+                        <div class="faq-panel px-6">
+                            <p class="pb-5 text-gray-600 leading-relaxed">O livro é entregue presencialmente no momento do seu credenciamento, junto com sua identificação de participante. Não é necessário fazer nada além de comparecer ao evento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal border border-navy-900/10 rounded-2xl overflow-hidden">
+                        <button class="faq-trigger w-full flex items-center justify-between text-left px-6 py-5 bg-white hover:bg-mist transition">
+                            <span class="font-medium text-navy-900">O evento faz o atendimento de vistos ali, na hora?</span>
+                            <span class="faq-icon text-2xl text-stamp-gold leading-none">+</span>
+                        </button>
+                        <div class="faq-panel px-6">
+                            <p class="pb-5 text-gray-600 leading-relaxed">O evento não substitui uma consultoria individual de visto. Os agentes migratórios presentes respondem dúvidas gerais durante o dia, e a análise específica do seu caso deve ser feita em um atendimento particular, que pode ser agendado a partir do próprio evento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal border border-navy-900/10 rounded-2xl overflow-hidden">
+                        <button class="faq-trigger w-full flex items-center justify-between text-left px-6 py-5 bg-white hover:bg-mist transition">
+                            <span class="font-medium text-navy-900">Preciso já ter decidido migrar para participar?</span>
+                            <span class="faq-icon text-2xl text-stamp-gold leading-none">+</span>
+                        </button>
+                        <div class="faq-panel px-6">
+                            <p class="pb-5 text-gray-600 leading-relaxed">Não. O evento recebe tanto quem já decidiu migrar quanto quem ainda está avaliando se esse é o caminho certo. As palestras e conversas ajudam justamente nessa decisão.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal border border-navy-900/10 rounded-2xl overflow-hidden">
+                        <button class="faq-trigger w-full flex items-center justify-between text-left px-6 py-5 bg-white hover:bg-mist transition">
+                            <span class="font-medium text-navy-900">Qual é o formato do evento?</span>
+                            <span class="faq-icon text-2xl text-stamp-gold leading-none">+</span>
+                        </button>
+                        <div class="faq-panel px-6">
+                            <p class="pb-5 text-gray-600 leading-relaxed">É um evento presencial, de um dia inteiro, em São Paulo, com palestras, mesas de perguntas e respostas com agentes migratórios, momentos de networking e um coffee break exclusivo entre as sessões.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal border border-navy-900/10 rounded-2xl overflow-hidden">
+                        <button class="faq-trigger w-full flex items-center justify-between text-left px-6 py-5 bg-white hover:bg-mist transition">
+                            <span class="font-medium text-navy-900">O ingresso pode ser parcelado?</span>
+                            <span class="faq-icon text-2xl text-stamp-gold leading-none">+</span>
+                        </button>
+                        <div class="faq-panel px-6">
+                            <p class="pb-5 text-gray-600 leading-relaxed">Sim, o parcelamento está disponível diretamente na página de checkout, nas opções de pagamento por cartão de crédito.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CTA FINAL ============ -->
+        <section class="ticket-gradient py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-2xl md:text-4xl font-display font-semibold text-white mb-4">São Paulo, 29 de Agosto. Sua vaga e seu livro te esperam.</h2>
+                <p class="text-navy-100/70 mb-8 max-w-xl mx-auto">Vagas limitadas para a 2ª edição do ecossistema Austrália Sem Fronteiras.</p>
+                <a href="#" data-cta-checkout class="inline-block bg-stamp-gold text-navy-950 px-10 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-stamp-light hover:-translate-y-0.5 transition duration-300">
+                    Garantir Meu Ingresso com Livro Incluso
+                </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12 mt-20">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2026 Expert Latam. Todos os direitos reservados.</p>
+    <!-- ============ 7. RODAPÉ ============ -->
+    <footer class="bg-navy-950 text-navy-100 pt-16 pb-28 md:pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+                <div>
+                    <img src="https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/Avi%C3%A3o-2-degrade-black%404x.png" alt="Logo Austrália Sem Fronteiras" class="h-12 w-auto mb-4 brightness-0 invert opacity-90">
+                    <p class="text-sm text-navy-100/60 leading-relaxed max-w-xs">Um evento do ecossistema Austrália Sem Fronteiras, por Expert Latam.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Evento</h4>
+                    <ul class="space-y-2 text-sm text-navy-100/70">
+                        <li>29 de Agosto</li>
+                        <li>São Paulo, local a confirmar aos inscritos</li>
+                        <li>2ª edição do ecossistema ASF</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wide">Navegação</h4>
+                    <ul class="space-y-2 text-sm text-navy-100/70">
+                        <li><a href="#palestrantes" class="hover:text-white transition">Palestrantes</a></li>
+                        <li><a href="#livro" class="hover:text-white transition">O Livro</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="pt-8 text-center text-xs text-navy-100/50">&copy; 2026 Expert Latam. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- ============ WHATSAPP FLUTUANTE ============ -->
+    <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Fiquei%20com%20uma%20d%C3%BAvida%20sobre%20o%20evento%20Austr%C3%A1lia%20Sem%20Fronteiras."
+       target="_blank" rel="noopener noreferrer"
+       class="group fixed bottom-5 right-5 z-50 flex items-center gap-3">
+        <span class="hidden md:block bg-navy-950 text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition duration-300 whitespace-nowrap">
+            Ficou com dúvida? Fale com nosso time
+        </span>
+        <span class="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-xl">
+            <span class="wa-pulse absolute inset-0 rounded-full"></span>
+            <svg class="relative w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.02.28-3.4-.71-2.88-1.19-4.73-4.1-4.87-4.29-.14-.19-1.16-1.55-1.16-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2.01.89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.35-.23.6-.14.24.09 1.55.73 1.82.86.26.14.44.21.5.32.07.12.07.68-.17 1.36z"/></svg>
+        </span>
+    </a>
+
+    <script>
+        // ==========================================================
+        // CONFIGURAÇÃO DO CHECKOUT
+        // Cole aqui o link de checkout gerado pela Hotmart (ou pela
+        // plataforma que você escolher). Todos os 4 botões "Comprar"
+        // da página puxam deste único lugar, não precisa editar
+        // botão por botão.
+        // ==========================================================
+        const CHECKOUT_URL = "https://pay.hotmart.com/J107010309S";
+
+        document.querySelectorAll('[data-cta-checkout]').forEach(function (link) {
+            link.href = CHECKOUT_URL;
+            // Rastreamento simples de cliques no CTA (opcional).
+            // Se você usar Google Analytics/GTM, troque este console.log
+            // por um evento real, ex: gtag('event', 'click_cta_checkout')
+            link.addEventListener('click', function () {
+                console.log('CTA de checkout clicado:', link.textContent.trim());
+            });
+        });
+
+        // Accordion FAQ
+        document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.faq-item');
+                var wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+                    openItem.classList.remove('open');
+                });
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        // Scroll reveal
+        var revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            revealEls.forEach(function (el) { io.observe(el); });
+        } else {
+            revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        }
+    </script>
 
 </body>
 </html>
