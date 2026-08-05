@@ -7,7 +7,7 @@
     <meta name="description" content="2ª edição do evento presencial do ecossistema Austrália Sem Fronteiras, em São Paulo. Agentes migratórios, palestras práticas, networking e livro incluso no ingresso.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -27,7 +27,7 @@
                         mist: '#F5F8FB',
                     },
                     fontFamily: {
-                        display: ['Fraunces', 'serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
                         sans: ['Inter', 'sans-serif'],
                     },
                 }
@@ -37,7 +37,7 @@
     <style>
         html { -webkit-font-smoothing: antialiased; }
         body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .font-display { font-family: 'Fraunces', serif; }
+        h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.01em; }
 
         .ticket-gradient { background: linear-gradient(135deg, #144A80 0%, #000C1F 100%); }
 
@@ -128,7 +128,7 @@
     <div id="sobre-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-navy-950/60 backdrop-blur-sm">
         <div class="bg-white w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-3xl p-8 shadow-2xl relative">
             <button onclick="document.getElementById('sobre-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl leading-none">&times;</button>
-            <h2 class="text-3xl font-display font-semibold mb-6 text-navy-800">Sobre o Austrália Sem Fronteiras</h2>
+            <h2 class="text-3xl font-display font-bold mb-6 text-navy-800">Sobre o Austrália Sem Fronteiras</h2>
             <div class="space-y-4 text-gray-600">
                 <p>O <strong>Austrália Sem Fronteiras (ASF)</strong> é um movimento e uma plataforma independente que conecta talentos, instituições e ecossistemas da América Latina à Austrália.</p>
                 <p>Nossa proposta de valor se baseia em três dimensões:</p>
@@ -148,10 +148,9 @@
             <div class="flex flex-col md:flex-row items-center gap-14">
                 <div class="flex-1 space-y-6 reveal">
                     <span class="inline-flex items-center gap-2 text-stamp-gold font-semibold tracking-wide uppercase text-xs md:text-sm">
-                        <span class="w-8 h-px bg-stamp-gold"></span>
                         29 de Agosto · 14h às 18h · São Paulo
                     </span>
-                    <h1 class="text-4xl md:text-6xl font-display font-semibold leading-tight text-navy-900">
+                    <h1 class="text-4xl md:text-6xl font-display font-bold leading-tight text-navy-900">
                         O seu futuro na Austrália começa em uma sala, em São Paulo.
                     </h1>
                     <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -191,7 +190,7 @@
                     </div>
                     <div class="flex-1 order-1 md:order-2 text-white space-y-6 reveal">
                         <span class="inline-block text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Bônus exclusivo do ingresso</span>
-                        <h2 class="text-3xl md:text-5xl font-display font-semibold leading-tight">
+                        <h2 class="text-3xl md:text-5xl font-display font-bold leading-tight">
                             Um livro sobre uma travessia real: a do próprio autor.
                         </h2>
                         <p class="text-navy-100/80 text-lg leading-relaxed">
@@ -218,7 +217,7 @@
                     <div class="absolute -top-10 -right-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
                     <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="text-2xl font-display font-semibold mb-1">Evento ASF 2026</h3>
+                            <h3 class="text-2xl font-display font-bold mb-1">Evento ASF 2026</h3>
                             <p class="opacity-70 text-sm">São Paulo, 29 de Agosto · 14h às 18h</p>
                         </div>
                         <span class="text-[10px] uppercase tracking-widest bg-stamp-gold/90 text-navy-950 font-bold px-2.5 py-1 rounded-full">Livro incluso</span>
@@ -278,7 +277,7 @@
         <section id="beneficios" class="container mx-auto px-6 py-20 md:py-24">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">O que você vai encontrar</span>
-                <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Um dia inteiro pensado para tirar você do "achismo".</h2>
+                <h2 class="mt-3 text-3xl md:text-4xl font-display font-bold text-navy-900">Um dia inteiro pensado para tirar você do "achismo".</h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
@@ -286,7 +285,7 @@
                     <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h.01M15 12h.01M9 16h6M4.5 8.25h15A1.5 1.5 0 0121 9.75v9A1.5 1.5 0 0119.5 20h-15A1.5 1.5 0 013 18.75v-9a1.5 1.5 0 011.5-1.5zM8 8.25V6a4 4 0 018 0v2.25"/></svg>
                     </div>
-                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Agentes Migratórios Oficiais</h3>
+                    <h3 class="font-display text-xl font-bold mb-2 text-navy-900">Agentes Migratórios Oficiais</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Tire suas dúvidas diretamente com quem lida com processos de imigração todos os dias, sem enrolação.</p>
                 </div>
 
@@ -294,7 +293,7 @@
                     <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20l6-16 6 16M6 14h6m3 6l3-9 3 9"/></svg>
                     </div>
-                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Palestras Práticas</h3>
+                    <h3 class="font-display text-xl font-bold mb-2 text-navy-900">Palestras Práticas</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Mercado de trabalho, custo de vida e os primeiros passos reais de quem já está na Austrália.</p>
                 </div>
 
@@ -302,7 +301,7 @@
                     <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 100-8 4 4 0 000 8z"/></svg>
                     </div>
-                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Networking com a Comunidade</h3>
+                    <h3 class="font-display text-xl font-bold mb-2 text-navy-900">Networking com a Comunidade</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Conecte-se com pessoas que estão na mesma jornada e com quem já chegou do outro lado.</p>
                 </div>
 
@@ -310,7 +309,7 @@
                     <div class="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center mb-5">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1a4 4 0 010 8h-1M18 8H4v9a4 4 0 004 4h6a4 4 0 004-4V8zM6 2v2m4-2v2m4-2v2"/></svg>
                     </div>
-                    <h3 class="font-display text-xl font-semibold mb-2 text-navy-900">Coffee Break Exclusivo</h3>
+                    <h3 class="font-display text-xl font-bold mb-2 text-navy-900">Coffee Break Exclusivo</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Um intervalo pensado para boas conversas, em um ambiente acolhedor entre uma sessão e outra.</p>
                 </div>
 
@@ -322,31 +321,31 @@
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                     <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Quem vai estar lá</span>
-                    <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Especialistas que vivem essa jornada. Não só falam sobre ela.</h2>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-display font-bold text-navy-900">Especialistas que vivem essa jornada. Não só falam sobre ela.</h2>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="reveal text-center group">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Marcelo Lusardo, fundador do Austrália Sem Fronteiras" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/marcelo-lusardo.jpg'); background-repeat:no-repeat; background-size: auto 200%; background-position: 36% 22%;"></div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Marcelo Lusardo</h3>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Marcelo Lusardo, fundador do Austrália Sem Fronteiras" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/marcelo-lusardo.jpg?v=2'); background-repeat:no-repeat; background-size: auto 200%; background-position: 36% 42%;"></div>
+                        <h3 class="font-display font-bold text-lg text-navy-900">Marcelo Lusardo</h3>
                         <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Fundador ASF · Líder de Travessias™</p>
                         <p class="text-gray-500 text-sm">Do abandono na infância à liderança internacional: autor de Austrália Sem Fronteiras e criador do método Líder de Travessias™.</p>
                     </div>
                     <div class="reveal text-center group" style="transition-delay: 60ms">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Elias Esdras, agente migratório" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/elias-esdras.jpg'); background-repeat:no-repeat; background-size: auto 200%; background-position: 33% 15%;"></div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Elias Esdras</h3>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Elias Esdras, agente migratório" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/elias-esdras.jpg?v=2'); background-repeat:no-repeat; background-size: auto 200%; background-position: 33% 35%;"></div>
+                        <h3 class="font-display font-bold text-lg text-navy-900">Elias Esdras</h3>
                         <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Registered Migration Agent</p>
                         <p class="text-gray-500 text-sm">Cidadão australiano e pós-graduado em Migration Law, orienta famílias em processos migratórios com estratégia e uma abordagem humana.</p>
                     </div>
                     <div class="reveal text-center group" style="transition-delay: 120ms">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Alexandre de Pedro, advogado" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/alexandre-de-pedro.jpg'); background-repeat:no-repeat; background-size: auto 200%; background-position: 72% 0%;"></div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Alexandre de Pedro</h3>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Alexandre de Pedro, advogado" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/alexandre-de-pedro.jpg?v=2'); background-repeat:no-repeat; background-size: auto 200%; background-position: 72% 20%;"></div>
+                        <h3 class="font-display font-bold text-lg text-navy-900">Alexandre de Pedro</h3>
                         <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Advogado · Educação Internacional</p>
                         <p class="text-gray-500 text-sm">Advogado que liderou uma operação educacional em Sydney, hoje acompanha brasileiros em processos de estudo, trabalho e vistos na Austrália.</p>
                     </div>
                     <div class="reveal text-center group" style="transition-delay: 180ms">
-                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Ismael Tavernaro Filho, palestrante convidado" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/ismael-tavernaro.jpg'); background-repeat:no-repeat; background-size: auto 284%; background-position: 100% 33%;"></div>
-                        <h3 class="font-display font-semibold text-lg text-navy-900">Ismael Tavernaro Filho</h3>
+                        <div class="relative mx-auto w-36 h-36 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white group-hover:ring-stamp-gold/40 transition bg-navy-800" role="img" aria-label="Foto de Ismael Tavernaro Filho, palestrante convidado" style="background-image:url('https://raw.githubusercontent.com/laurareynol/ASF-EVENTO-29-08/main/ismael-tavernaro.jpg?v=2'); background-repeat:no-repeat; background-size: auto 284%; background-position: 100% 40%;"></div>
+                        <h3 class="font-display font-bold text-lg text-navy-900">Ismael Tavernaro Filho</h3>
                         <p class="text-stamp-gold text-xs font-semibold uppercase tracking-wide mb-1">Convidado · "Gente Motivada Produz"</p>
                         <p class="text-gray-500 text-sm">Empreendedor que transformou desafios reais em propósito, mostra como mentalidade e atitude mudam resultados na prática.</p>
                     </div>
@@ -358,7 +357,7 @@
         <section id="depoimentos" class="container mx-auto px-6 py-20 md:py-24">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Quem já confiou na Expert Education</span>
-                <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Avaliações reais de quem já teve o visto aprovado.</h2>
+                <h2 class="mt-3 text-3xl md:text-4xl font-display font-bold text-navy-900">Avaliações reais de quem já teve o visto aprovado.</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -403,7 +402,7 @@
             <div class="container mx-auto px-6 max-w-3xl">
                 <div class="text-center mb-14 reveal">
                     <span class="text-stamp-gold font-semibold uppercase tracking-wide text-xs md:text-sm">Perguntas frequentes</span>
-                    <h2 class="mt-3 text-3xl md:text-4xl font-display font-semibold text-navy-900">Ainda com dúvidas?</h2>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-display font-bold text-navy-900">Ainda com dúvidas?</h2>
                 </div>
 
                 <div class="space-y-3" id="faq-list">
@@ -465,7 +464,7 @@
         <!-- ============ CTA FINAL ============ -->
         <section class="ticket-gradient py-16 md:py-20">
             <div class="container mx-auto px-6 text-center reveal">
-                <h2 class="text-2xl md:text-4xl font-display font-semibold text-white mb-4">São Paulo, 29 de Agosto. Sua vaga e seu livro te esperam.</h2>
+                <h2 class="text-2xl md:text-4xl font-display font-bold text-white mb-4">São Paulo, 29 de Agosto. Sua vaga e seu livro te esperam.</h2>
                 <p class="text-white/90 mb-8 max-w-xl mx-auto">Vagas limitadas para a 2ª edição do ecossistema Austrália Sem Fronteiras.</p>
                 <a href="#" data-cta-checkout class="inline-block bg-stamp-gold text-navy-950 px-10 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-stamp-light hover:-translate-y-0.5 transition duration-300">
                     Garantir Meu Ingresso com Livro Incluso
@@ -508,7 +507,7 @@
     </footer>
 
     <!-- ============ WHATSAPP FLUTUANTE ============ -->
-    <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Fiquei%20com%20uma%20d%C3%BAvida%20sobre%20o%20evento%20Austr%C3%A1lia%20Sem%20Fronteiras."
+    <a href="https://wa.me/5511945992147?text=Ol%C3%A1!%20Fiquei%20com%20uma%20d%C3%BAvida%20sobre%20o%20evento%20Austr%C3%A1lia%20Sem%20Fronteiras."
        target="_blank" rel="noopener noreferrer"
        class="group fixed bottom-5 right-5 z-50 flex items-center gap-3">
         <span class="hidden md:block bg-navy-950 text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition duration-300 whitespace-nowrap">
